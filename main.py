@@ -1,6 +1,5 @@
 from flask import Flask, request, jsonify
 from pytrends.request import TrendReq
-import time
 
 app = Flask(__name__)
 
@@ -31,17 +30,3 @@ def get_trends():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080)
-```
-
-4. Click en **"Commit new file"**
-
----
-
-## Archivo 2: `requirements.txt`
-
-1. Click en **"Add file"** → **"Create new file"**
-2. Nombre: `requirements.txt`
-3. Pega esto:
-```
-flask
-pytrends
