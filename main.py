@@ -14,7 +14,7 @@ def get_trends():
     
     try:
         time.sleep(2)
-        pytrends = TrendReq(hl='es-CO', tz=300, timeout=(10,25), retries=2, backoff_factor=0.1)
+        pytrends = TrendReq(hl='es-CO', tz=300)
         pytrends.build_payload([keyword], cat=0, timeframe='today 12-m', geo=geo)
         data = pytrends.interest_over_time()
         
