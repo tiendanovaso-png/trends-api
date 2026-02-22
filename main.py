@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 from pytrends.request import TrendReq
+import time
 
 app = Flask(__name__)
 
@@ -12,7 +13,8 @@ def get_trends():
         return jsonify({'error': 'keyword requerida'}), 400
     
     try:
-        pytrends = TrendReq(hl='es-CO', tz=300)
+        time.sleep(2)
+        pytrends = TrendReq(hl='es-CO', tz=300, timeout=(10,25), retries=2, backoff_factor=0.1)
         pytrends.build_payload([keyword], cat=0, timeframe='today 12-m', geo=geo)
         data = pytrends.interest_over_time()
         
